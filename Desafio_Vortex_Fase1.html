@@ -1,0 +1,32 @@
+<script>
+
+var T = parseInt(prompt("Quantos segundos terá a jogada: "));
+var Q = parseInt(prompt("Quantidade de Jogadores: "));
+var X = parseInt(prompt("Tempo de reposicionamento dos jogadores: "));
+var y = Q;
+var Passes = [0];
+var soma = 0;
+
+    if(T <= 24 && T > 0 && Q >= 2 && Q <= 5 && X > 0 && X <= Q - 1){ // Checar se os valores estão de acordo com o solicitado na questão
+        alert("Iniciando simulação");
+    
+
+         for(var v = 0; v < T; v++){                                // Executar a quantidade de jogadas
+             if(y > Q - X){                                         // Faz o cálculo de jogadores livres 
+                y = y - 1;
+             }else{
+                y = Q - X;
+             }
+
+            Passes.push(y);                                         // Armazena o valor de jogadores livres de cada jogada dentro do array
+        }
+
+         for(var i = 0; i < Passes.length; i++){                    // Faz o somatório do valor de cada posição do array
+             soma += Passes[i];
+        }    
+
+    document.write("Somatório de jogadores livres:  " + soma);
+    }else{
+    document.write("Simulação Inválida")
+    }
+</script>
